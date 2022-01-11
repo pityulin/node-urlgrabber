@@ -98,7 +98,7 @@ std::wstring EnumerateChildren(IUIAutomationElement* parentElement, TreeScope sc
 }
 
 
-Napi::Value NthRoot(const Napi::CallbackInfo& info) {
+Napi::Value getUrl(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     
     if (info.Length() != 1) {
@@ -154,7 +154,7 @@ Napi::Value NthRoot(const Napi::CallbackInfo& info) {
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
     __initAutomation.Init();
-    exports.Set(Napi::String::New(env, "nthroot"), Napi::Function::New(env, NthRoot));
+    exports.Set(Napi::String::New(env, "getUrl"), Napi::Function::New(env, getUrl));
     return exports;
 }
 
